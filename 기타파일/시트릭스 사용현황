@@ -1,0 +1,977 @@
+##젠서버 호스트별 VM UUID
+
+#DEVZEN01
+
+#[root@devxen01 ~]# xe vm-list params=name-label,install-time,name-description,networks
+name-label ( RW)          : QVM_tmfrdk
+    name-description ( RW): ?????????
+        install-time ( RO): 20180702T03:08:57Z
+
+
+name-label ( RW)          : QVM_oar
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 01-VDIRODC.gmkt.inc
+    name-description ( RW): 
+        install-time ( RO): 20210322T05:02:25Z
+
+
+name-label ( RW)          : QVM_lene80
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_kooni7
+    name-description ( RW): ???????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : Control domain on host: devxen01
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+
+
+name-label ( RW)          : QVM_2xteam
+    name-description ( RW): ?????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_bangjh_N1
+    name-description ( RW): ????????? N1
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_maitreya
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_june2soul
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_hspark
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 01-STGINT1
+    name-description ( RW): 
+        install-time ( RO): 20201130T05:07:22Z
+
+
+name-label ( RW)          : 01-STGSG1
+    name-description ( RW): 
+        install-time ( RO): 20190920T05:42:03Z
+
+
+name-label ( RW)          : QVM_dreamhyo
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+name-label ( RW)          : QVM_pvp0032
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_leetaehun99
+    name-description ( RW): ???????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 01-RDWEB01-ERWIN
+    name-description ( RW): ERWIN_Share
+        install-time ( RO): 20161007T15:11:52Z
+
+
+name-label ( RW)          : INFO-ycy5064_NEW
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_lemonhot23
+    name-description ( RW): ????????? c_ok vda7.11
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_alsrhks7933
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : Control domain on host: devxen02
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_shany85_NEW
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : 01-STGQS01
+    name-description ( RW): 
+        install-time ( RO): 20211014T05:40:41Z
+
+
+name-label ( RW)          : 01-DDC02New
+    name-description ( RW): 01-DDC02New
+        install-time ( RO): 20181209T04:42:06Z
+
+
+name-label ( RW)          : QVM_brchoi
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_sjc1087
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+name-label ( RW)          : QVM_secretm
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : vdi-test
+    name-description ( RW): 
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : 01-ISO_LibraryVM_new
+    name-description ( RW): ISO_LibraryVM_new
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : Control domain on host: DEVXEN05
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_age0218
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_wjlee
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_ywku
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : 01-Exporting_XA
+    name-description ( RW): ??????????????? VM Info,DB,DevMaster, ** DDCTEST
+        install-time ( RO): 20161007T15:11:52Z
+
+
+name-label ( RW)          : ERWIN(Win2019)
+    name-description ( RW): 
+        install-time ( RO): 20210630T03:19:00Z
+
+
+name-label ( RW)          : QVM_choju
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_suhyun0603
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_neostyx
+    name-description ( RW): ??????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_camae
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_dalki
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_parkcasu
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_nth2660
+    name-description ( RW): 
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_jysong
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : QVM_wontae
+    name-description ( RW): ???????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_wkddnjs7883
+    name-description ( RW): ???????
+        install-time ( RO): 20180702T03:08:57Z
+
+
+name-label ( RW)          : 01-STGKR01
+    name-description ( RW): 
+        install-time ( RO): 20211014T05:40:41Z
+
+
+name-label ( RW)          : DEV_Master
+    name-description ( RW): 
+        install-time ( RO): 20200910T05:06:04Z
+
+name-label ( RW)          : Control domain on host: DEVXEN03
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_min1989628
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 01-INfoDeploy1
+    name-description ( RW): 01-INfoDeploy1
+        install-time ( RO): 20181019T07:48:57Z
+
+
+name-label ( RW)          : XENAPPVM
+    name-description ( RW): ?????? XENAPP ?????????
+        install-time ( RO): 20220118T01:19:05Z
+
+
+name-label ( RW)          : QVM_subylee_new
+    name-description ( RW): ?????????_new
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_khchoi
+    name-description ( RW): ????????? vs2017_enter
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : 01-CostMON-new
+    name-description ( RW): 
+        install-time ( RO): 20211110T12:49:14Z
+
+
+name-label ( RW)          : QVM_jsyu
+    name-description ( RW): 
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_june2381
+    name-description ( RW): ?????????1803????????????vm
+        install-time ( RO): 20180702T03:08:57Z
+
+
+name-label ( RW)          : 01-STGQB1
+    name-description ( RW): 01-STGQB1
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_jhkim11
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_kimjh0112
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : QVM_srkim
+    name-description ( RW): ?????????
+        install-time ( RO): 20200910T05:06:04Z
+
+
+name-label ( RW)          : Control domain on host: devxen04
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00
+
+
+
+# TECHXEN
+
+
+#[root@TECHXS1 /]# xe vm-list params=name-label,install-time,name-description
+
+
+name-label ( RW)          : TECH-pyohj91_NEW
+    name-description ( RW): TECH-pyohj91_NEW
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-dkfma642
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-ysw8802
+    name-description ( RW): ??????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-sueah
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DBMasterVM
+    name-description ( RW): 
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+name-label ( RW)          : Control domain on host: TECHXS1
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-sjhwang
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : TECH_soul2termk_N1
+    name-description ( RW): ?????????N1
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-hjkim
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO-kdh.clover
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : TECH-krpark
+    name-description ( RW): ????????? c c_ok vda7.11
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : Control domain on host: TECHXS2
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : MarkupWEB
+    name-description ( RW): 
+        install-time ( RO): 20220623T00:50:21Z
+
+
+
+# TECH
+
+
+
+#[root@DEVXS05 ~]# xe vm-list params=name-label,install-time,name-description
+
+
+name-label ( RW)          : Control domain on host: DEVXS07
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DBVM_jhlee-N1
+    name-description ( RW): ?????????N1
+        install-time ( RO): 20200709T00:58:06Z
+
+
+name-label ( RW)          : TECH-jymok
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : COM-kimhj
+    name-description ( RW): ???????
+        install-time ( RO): 20210121T01:09:59Z
+
+
+name-label ( RW)          : DB-xyhunter114
+    name-description ( RW): ?????????_1803
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : TECH-supersky
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DBMasterVM_NEW
+    name-description ( RW): 
+        install-time ( RO): 20200709T00:58:06Z
+
+
+name-label ( RW)          : TECH-jaeho-song
+    name-description ( RW): ?????????
+        install-time ( RO): 20210121T01:09:59Z
+
+
+name-label ( RW)          : INFO-jwjeong
+    name-description ( RW): ???????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : SECU-bnlim
+    name-description ( RW): ???????
+        install-time ( RO): 20210121T01:09:59Z
+
+
+name-label ( RW)          : TECH-flzkemfh
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DB-jhpark
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : COM-parksh
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : COM-jyoo
+    name-description ( RW): ??????
+        install-time ( RO): 20210121T01:09:59Z
+
+name-label ( RW)          : COM-choyd
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : Control domain on host: DEVXS05
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : COM_bhchoi_N1
+    name-description ( RW): ?????????
+        install-time ( RO): 20200709T00:58:06Z
+
+
+name-label ( RW)          : TECH-mingo
+    name-description ( RW): ????????? c_ok
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : COM-dooood
+    name-description ( RW): ????????? c_ok vda7.11
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : Control domain on host: DEVXS06
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM-yhj
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : INFO_dorumugs
+    name-description ( RW): ?????????
+        install-time ( RO): 20210121T01:09:59Z
+
+
+name-label ( RW)          : TECH-cws-new
+    name-description ( RW): ?????????
+        install-time ( RO): 20210121T01:09:59Z
+
+
+name-label ( RW)          : SECU-shhong
+    name-description ( RW): ????????? c_ok vda7.11
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : SECU-spbyeon
+    name-description ( RW): ?????????
+        install-time ( RO): 20200709T00:58:06Z
+
+
+
+
+#QQDEV
+
+#[root@QQDEVXS1 ~]# xe vm-list params=name-label,install-time,name-description
+
+
+name-label ( RW)          : DBVM3_?????????
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_kooni7
+    name-description ( RW): ???????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_parkcasu
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 1-1.QQDDC1
+    name-description ( RW): QQDDC1
+        install-time ( RO): 20180904T02:10:43Z
+
+
+name-label ( RW)          : QQ_june2381
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 1-2.ISO_TEMP_new
+    name-description ( RW): 1-2.ISO_TEMP_new
+        install-time ( RO): 20200507T07:38:33Z
+
+
+name-label ( RW)          : Control domain on host: QQDEVXS2
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_min1989628
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QCoinVM01-ybku
+    name-description ( RW): ?????????????????? ????????????VM
+        install-time ( RO): 20180910T02:36:38Z
+
+
+name-label ( RW)          : QQ_maitreya
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : TECHMON2
+    name-description ( RW): TECHMON2
+        install-time ( RO): 20181120T08:20:17Z
+
+
+name-label ( RW)          : QQ_alsrhks7933
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 1-3.QQOTP1
+    name-description ( RW): QQOTP1
+        install-time ( RO): 20180919T07:20:25Z
+
+
+name-label ( RW)          : QQ_bangjh
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : QQ_lene80
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_subylee
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_hspark_new
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DBVM2_?????????
+    name-description ( RW): DBVM2_?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : QpayVM_Master
+    name-description ( RW): 
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_dreamhyo
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DBVM1_?????????
+    name-description ( RW): DBVM1_?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_tmfrdk
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_lemonhot23
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_june2soul New
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_age0218
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : Control domain on host: QQDEVXS1
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : yjshin-TEST-VM
+    name-description ( RW): YJSHIN TEST VM DESCRIPTION
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QCoinVM03_subylee
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_secretm
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QCoinVM02-tt,yscho
+    name-description ( RW): ???????????????/?????????????????? ????????????VM
+        install-time ( RO): 20180910T02:36:38Z
+
+
+name-label ( RW)          : 2-1.QQDDC2
+    name-description ( RW): QQDDC2
+        install-time ( RO): 20180904T02:49:17Z
+
+
+name-label ( RW)          : DBMasterVM_NEW
+    name-description ( RW): 
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QQ_shany85_new
+    name-description ( RW): ?????????_new
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : DEV_QBalance
+    name-description ( RW): ???????????? ?????? ?????? ????????????
+        install-time ( RO): 20190819T01:40:16Z
+
+
+name-label ( RW)          : TECHMON1
+    name-description ( RW): TECHMON1
+        install-time ( RO): 20180910T02:36:38Z
+
+
+name-label ( RW)          : QQ_khchoi
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 1-4.QPSTG1
+    name-description ( RW): 1-4.QPSTG1
+        install-time ( RO): 20180910T12:46:43Z
+
+
+name-label ( RW)          : QQ_june2381_error
+    name-description ( RW): ?????????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+
+#QXDEV
+
+
+
+#[root@qxdevxs01 ~]# xe vm-list params=name-label,install-time,name-description
+
+
+
+name-label ( RW)          : 1-3.QXSTG1
+    name-description ( RW): 1-3.QXSTG1
+        install-time ( RO): 20201014T14:06:33Z
+
+
+name-label ( RW)          : Control domain on host: qxdevxs01
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+name-label ( RW)          : QX_jh.jang
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_tschoi
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_jyahn
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 1-4.QXRDWeb
+    name-description ( RW): 
+        install-time ( RO): 20201019T05:32:43Z
+
+
+name-label ( RW)          : QX_twkwon
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_nkoh
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_jongman.kang
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky, ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_hepark
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QXDevMaster
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_hahs
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_kxhong
+    name-description ( RW): KaiXuan Hong ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : CN-QVM_youk6212
+    name-description ( RW): ??????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : CN-QVM_xy-ren
+    name-description ( RW): XinYue REN
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_hrlee
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 2-3.QXVMWSUS
+    name-description ( RW): 
+        install-time ( RO): 20210512T08:42:03Z
+
+
+name-label ( RW)          : QX_jkchoi2000
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_ywshin
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+
+name-label ( RW)          : QX_jc.park
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_shindy
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 1-5.QXRDG1
+    name-description ( RW): QXRDG1
+        install-time ( RO): 20201030T07:01:58Z
+
+
+name-label ( RW)          : 1-6.QX_XenApp
+    name-description ( RW): 
+        install-time ( RO): 20210916T06:16:17Z
+
+
+name-label ( RW)          : QX_storywall
+    name-description ( RW): ?????? ; vs2013,vs2015,sql mgt studio 2016,editplus
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : CNQVM_zb_jiang
+    name-description ( RW): ZhengBin JIANG ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : CNQVM_zquan
+    name-description ( RW): ??????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QX_wonmh
+    name-description ( RW): ?????? / 2021-10-25 C????????????(20GB: ????_??????)
+        install-time ( RO): 20200924T17:12:57Z
+
+name-label ( RW)          : QX_smlee
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_kwher
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 1-2.QXP_ISOLibrary
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_dgyang
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_kjhun
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,
+        install-time ( RO): 20200924T17:12:57Z
+
+name-label ( RW)          : QVM_jtpark_eurasia
+    name-description ( RW): ??????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : 1-1.QXDDC01
+    name-description ( RW): 
+        install-time ( RO): 20200923T12:02:51Z
+
+
+name-label ( RW)          : QX_byungg
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 2-2.QXRDG2
+    name-description ( RW): QXRDG2
+        install-time ( RO): 20201030T07:01:58Z
+
+name-label ( RW)          : Control domain on host: qxdevxs03
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QVM_ykums
+    name-description ( RW): ??????
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QX_yunsan80
+    name-description ( RW): ?????? N1
+        install-time ( RO): 19700101T00:00:00Z
+
+
+name-label ( RW)          : QX_wsshin
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+name-label ( RW)          : QX_shpark2
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : QX_isjeong
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : Control domain on host: qxdevxs02
+    name-description ( RW): The domain which manages physical devices and manages other domains
+        install-time ( RO): 19700101T00:00:00Z
+
+name-label ( RW)          : QX_sj.choi
+    name-description ( RW): ??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : 2-1.QXDDC02
+    name-description ( RW): 
+        install-time ( RO): 20200924T15:21:34Z
+
+
+name-label ( RW)          : QX_jskim
+    name-description ( RW): VS2017, SSMS17, IIS, kaspersky,??????
+        install-time ( RO): 20200924T17:12:57Z
+
+
+name-label ( RW)          : CN-QVM_huangjunjie
+    name-description ( RW): huangjunjie
+        install-time ( RO): 19700101T00:00:00Z
+
+
+
+
+########### 시트릭스 스튜디오
+# Citrix Studio PowerShell 모듈 로드
+Add-PSSnapin Citrix.*
+
+# Citrix Studio에 연결
+asnp citrix*
+
+# VM 정보 가져오기
+$vmInfo = Get-BrokerMachine -MaxRecordCount Unlimited | Select-Object MachineName, DesktopGroupName, CurrentPowerState
+
+# 결과 출력 또는 원하는 처리 수행
+$vmInfo | Format-Table -AutoSize
+
+# CSV로 내보내기
+$vmInfo | Export-Csv -Path "C:\Path\To\Your\File\VM_Info.csv" -NoTypeInformation
+
+
+Get-BrokerDesktop | Select-Object MachineName, username, 
+
+
+########################################
+
+

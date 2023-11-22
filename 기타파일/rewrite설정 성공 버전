@@ -1,0 +1,433 @@
+## 아파치
+
+<VirtualHost *:80>
+    ServerName a.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} dbwls [NC]
+    RewriteRule ^(.*)$ http://b.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName b.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_2
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName c.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} /c [NC]
+    RewriteRule ^(.*)$ http://d.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName d.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_3
+</VirtualHost>
+
+
+
+## nginx
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* "dbwls") {
+            set $new_host $1a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+    }
+}
+
+
+
+server {
+    listen 80;
+    server_name b.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_b;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name c.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_c;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name a.testserver.com;
+
+    location / {
+        root   /usr/share/nginx/html_d;
+        index  index.html index.htm;
+    }
+}
+
+#@@@
+
+아래는 여러개의 조건문을 넣은것이다
+
+아파치
+<VirtualHost *:80>
+    ServerName a.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} dbwls [NC,OR]
+    RewriteCond %{REQUEST_URI} qwe [NC,OR]
+    RewriteCond %{REQUEST_URI} asd [NC,OR]
+    RewriteCond %{REQUEST_URI} zxc [NC]
+    RewriteRule ^(.*)$ http://b.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName b.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_2
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName c.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} /c [NC]
+    RewriteRule ^(.*)$ http://d.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName d.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_3
+</VirtualHost>
+
+
+NGINX
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* "dbwls" ) {
+            set $new_host a.testserver.com;
+        }
+        if ($request_uri ~* "asd" ) {
+            set $new_host a.testserver.com;
+        }
+        if ($request_uri ~* "qwe" ) {
+            set $new_host a.testserver.com;
+        }
+        if ($request_uri ~* "zxc" ) {
+            set $new_host a.testserver.com;
+        }
+        rewrite ^ http://$new_host permanent;
+    }
+}
+
+
+server {
+    listen 80;
+    server_name b.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_b;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name c.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_c;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name a.testserver.com;
+
+    location / {
+        root   /usr/share/nginx/html_d;
+        index  index.html index.htm;
+    }
+}
+
+
+
+#여러개의 조건문을 간단하게 설정
+
+아파치 테스트 완료
+<VirtualHost *:80>
+    ServerName a.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} ^(\/imageproxy|\/bar|\/Mobile\/Intro|\/htmlproxy|\/itemmail|\/Update|\/thumbnail) [NC]
+    RewriteRule ^(.*)$ http://b.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName b.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_2
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName c.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} /c [NC]
+    RewriteRule ^(.*)$ http://d.dbwlsxptmxm.com [R,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName d.dbwlsxptmxm.com
+    DocumentRoot /var/www/html_3
+</VirtualHost>
+
+
+## NGINX 테스트 완료
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+        }
+        
+        rewrite ^ http://$new_host permanent;
+    }
+}
+
+
+server {
+    listen 80;
+    server_name b.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_b;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name c.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_c;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name a.testserver.com;
+
+    location / {
+        root   /usr/share/nginx/html_d;
+        index  index.html index.htm;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@##@@##@
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /usr/share/nginx/html_a;
+
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+        }
+        
+        rewrite ^ http://$new_host permanent;
+    }
+}
+
+수정
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /usr/share/nginx/html_a;
+
+        # 요청 URI가 / 로 시작하지 않을 경우에만 $new_host를 설정합니다.
+        if ($request_uri !~ ^/) {
+            set $new_host a.testserver.com;
+        }
+
+        # $new_host가 설정되어 있지 않은 경우에만 루트 페이지를 제공합니다.
+        if ($new_host = "") {
+            index index.html;
+        }
+
+        # $new_host가 설정되어 있지 않은 경우 루트 페이지를 표시합니다.
+        try_files $uri $uri/ =404;
+    }
+}
+
+
+수정 2 -> 채택
+location / {
+    if ($request_uri ~* \.(bar|html|txt|ico|exe|aac|doc|docx|xls|xlsx|zip|PDF|pdf|xml|css|js|dll|exe|sqlite|db)$) {
+    }
+
+}
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /usr/share/nginx/html_a;
+        index index.html;
+        
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            return 301 http://$new_host;
+        }
+    }
+}
+
+
+
+수정 3
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /usr/share/nginx/html_a;
+        index index.html;
+
+        if ($request_uri ~* \.(bar|html|txt|ico|exe|aac|doc|docx|xls|xlsx|zip|PDF|pdf|xml|css|js|dll|exe|sqlite|db)$) {
+        }
+
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            return 301 http://$new_host$request_uri;
+        }
+    }
+}
+
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /usr/share/nginx/html_a;
+        index index.html;
+
+        if ($request_uri ~* ^/(imageproxy|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            return 301 http://$new_host$request_uri;
+        }
+
+        if ($request_uri ~* \.(bar|html|txt|ico|exe|aac|doc|docx|xls|xlsx|zip|PDF|pdf|xml|css|js|dll|exe|sqlite|db)$) {
+
+        }
+    }
+}
+
+
+하려는게 a.host.com/
+
+
+@@@@@@@@@@@@@'
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+
+    location / {
+        root /usr/share/nginx/html_a;
+        index index.html;
+
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail) ) {
+            set $new_host a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+
+        if ($request_uri ~* ^/(itemmail|accountinfo|giftcard|invoice)) {
+            set $new_host a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+
+        if ($request_uri ~* \.(bar|html|txt|ico|exe|aac|doc|docx|xls|xlsx|zip|PDF|pdf|xml|css|js|dll|exe|sqlite|db)$ ) {
+            set $new_host a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+    }
+}
+
+-----
+server {
+    listen 80;
+    server_name a.host.com;
+    location / {
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+        }
+        
+        rewrite ^ http://$new_host permanent;
+    }
+}
+
+a.host.com/imageproxy 로 호출 할 경우 a.testserver.com으로 보내고 싶은데 자꾸 a.testserver.com/imageproxy로 이동이 됩니다.
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            rewrite ^ http://$new_host$request_uri permanent;
+        }
+    }
+}
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            rewrite ^ http://$new_host$uri permanent;
+        }
+    }
+}
+

@@ -1,0 +1,176 @@
+- aws cli 설치
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+$ unzip awscliv2.zip
+$ sudo ./aws/install
+$ aws --version
+
+- 도커 설치
+$ sudo amazon-linux-extras install docker -y
+$ sudo systemctl enable --now docker
+$ sudo curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
+$ sudo usermod -a -G docker ec2-user
+$ exit
+
+--- 우분투 도커 설치
+$ sudo apt update
+$ sudo apt install -y docker.io
+$ sudo usermod -a -G docker ubuntu
+$ exit
+
+Docker (Dock(부두) + er = 부두에서 일하는 일꾼)
+웹 개발자가 소스코드 개발(웹소스) > 도커 테스트 > 도커 이미지 빌드(Build) > 도커 이미지 저장소 전달 ECR(Ship) > 도커 컨테이너로 실행(Run)(운영자) - ECS(Swarm), EKS(Kubernetes)
+도커 이미지를 실행하면 도커 컨테이너(가상서버 유사)가 됩니다.
+
+- 도커 이미지를 만드는 기능: docker image build (Continuous Integration; CI)
+- 도커 이미지를 공유하는 기능: docker image push/pull (Continuous Delivery; CD)
+- 도커 컨테이너를 작동시키는 기능: docker container run (Continuous Deployment; CD)
+
+- 도커 이미지
+도커 컨테이너를 구성하는 파일 시스템과 실행할 애플리케이션 설정을 하나로 합친 것으로, 컨테이너를 생성하는 템플릿 역할을 합니다.
+
+- 도커 컨테이너
+도커 이미지를 기반으로 생성되며, 파일 시스템과 애플리케이션이 구체화되어 실행되는 상태입니다.
+
+- 도커 기본 명령어
+$ docker system info
+$ docker system df
+$ docker search nginx
+$ docker image pull nginx
+$ docker image ls
+$ docker container run -d -p 80:80 --name test-server nginx
+$ docker container ls
+$ docker container stats test-server
+$ docker container stop test-server
+$ docker container start test-server
+$ docker container restart test-server
+$ docker container pause test-server
+$ docker container unpause test-server
+$ docker container rename test-server web01
+$ docker container ls
+$ docker container exec -it web01 /bin/bash
+$ sudo vi index.html
+$ docker container exec -it web01 mkdir /usr/share/nginx/html/images
+$ docker container cp ./two-rabbit.jpg web01:/usr/share/nginx/html/images/
+$ docker container cp ./index.html web01:/usr/share/nginx/html/
+$ docker container commit -a "johnlee<test@example.com>" -m "PAULO" web01 web-site:v1.0
+$ docker image ls
+$ docker image save -o web-site-v1.tar web-site:v1.0
+$ chmod 400 my-key.pem
+$ sudo scp -i my-key.pem web-site-v1.tar ubuntu@10.0.35.189:/home/ubuntu
+$ docker image load -i web-site-v1.tar
+$ docker container run -d -p 80:80 --name web01 web-site:v1.0
+
+- 도커 파일 만들기
+$ sudo mkdir dockerfile-lab && cd $_
+$ sudo cp ~/index.html .
+$ sudo vi index.html
+$ sudo mkdir images
+$ sudo cp ~/two-rabbit.jpg ./images/
+$ sudo tar -cvf web-site-v2.tar index.html images
+$ sudo vi Dockerfile
+FROM ubuntu:latest
+RUN apt update && apt install -y -q nginx
+ADD web-site-v2.tar /var/www/html
+CMD ["nginx", "-g", "daemon off;"]
+
+$ docker image build -t web-site:v2.0 ./
+$ docker container run -d -p 8080:80 --name web02 web-site:v2.0
+
+- aws 자격증명
+$ aws configure
+
+- aws ecr 업로드
+$ aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/n7l8u7h3
+$ docker image tag web-site:v1.0 public.ecr.aws/n7l8u7h3/web-site:v1.0
+$ docker image tag web-site:v2.0 public.ecr.aws/n7l8u7h3/web-site:v2.0
+$ docker image push public.ecr.aws/n7l8u7h3/web-site:v1.0
+$ docker image push public.ecr.aws/n7l8u7h3/web-site:v2.0
+
+- eks cli
+$ aws eks --region ap-northeast-2 update-kubeconfig --name EKS-CLUSTER
+$ curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
+$ chmod +x ./kubectl
+$ sudo mv ./kubectl /usr/local/bin
+$ source <(kubectl completion bash)
+$ echo "source <(kubectl completion bash)" >> ~/.bashrc
+$ kubectl version --short --client
+$ kubectl get svc
+
+- nodegroup 역할 만들기
+AmazonEKSWorkerNodePolicy
+AmazonEC2ContainerRegistryReadOnly
+AmazonEKS_CNI_Policy
+
+$ mkdir test && cd $_
+- Pod 라이프사이클 관리
+
+$ vi pod.yaml # 파드 샘플 야믈
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx-pod
+spec:
+  containers:
+  - name: nginx-pod-container
+    image: nginx
+
+$ kubectl apply -f pod.yaml
+$ kubectl get po -o wide
+$ kubectl describe pod nginx-pod
+
+$ vi nodeport-pod.yaml # 노드포트 야믈
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-service-pod
+spec:
+  type: NodePort
+  selector:
+    app: nginx-pod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30080
+
+$ kubectl apply -f nodeport-pod.yaml
+$ kubectl get svc -o wide
+$ kubectl describe svc nodeport-service-pod
+
+$ vi deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-site-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-site-deployment
+  template:
+    metadata:
+      name: web-site-deployment
+      labels:
+        app: web-site-deployment
+    spec:
+      containers:
+      - name: web-site-deployment-container
+        image: public.ecr.aws/n7l8u7h3/web-site:v1.0
+
+---
+
+$ vi loadbalancer-deployment.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-service-deployment
+spec:
+  type: LoadBalancer
+  selector:
+    app: web-site-deployment
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

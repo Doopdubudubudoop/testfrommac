@@ -1,0 +1,533 @@
+아파치 웹 서버에서 사용되는 Rewrite 규칙을 Nginx 설정으로 변환하는 것은 비교적 복잡할 수 있습니다. 아파치와 Nginx의 Rewrite 모듈은 다르게 동작하므로 조금 다르게 구성해야 합니다. 아래는 주어진 아파치 설정을 Nginx로 변환한 예입니다:
+
+
+
+
+
+
+
+
+
+
+
+
+
+server {
+    listen 80;
+    server_name yourdomain.com; # Domain
+
+    location / {
+        if ($request_uri ~* ^(\/imageproxy|\/bar|\/Mobile\/Intro|\/htmlproxy|\/itemmail|\/Update|\/thumbnail)) {
+            rewrite ^(.*)$ http://rd.image-gmkt.com$1 break;
+        }
+
+        if ($request_uri ~* (\/itemmail|\/accountinfo|\/giftcard|\/invoice)) {
+            rewrite ^(.*)$ http://rd.image-gmkt.com$1 break;
+        }
+
+        if ($request_filename ~* .(bar|html|txt|ico|exe|aac|doc|docx|xls|xlsx|zip|PDF|pdf|xml|css|js|dll|exe|sqlite|db)$) {
+            rewrite ^(.*)$ http://rd.image-gmkt.com$1 break;
+        }
+
+        if ($request_uri ~* ^(\/thumbnail)) {
+            break;
+        }
+
+        rewrite (.*)(v_)([0-9]+).(.*) $1$4?$3 last;
+        rewrite ^/([0-9]+)/?(.*) /$2?$1 last;
+
+        if ($request_filename ~* (jpg|jpeg|png|gif|webp|jpg.webp|jpeg.webp)) {
+            set $is_image YES;
+        }
+
+        if ($is_image != YES) {
+            return 403;
+        }
+
+        if ($is_image = YES) {
+            rewrite (.*)(\.s_)([0-9a-zA-Z-_]+)(_s)(.)(.*) thumbnail/$3$1$5$6 break;
+            rewrite ^(.*)$ thumbnail/0$1 break;
+        }
+
+        if (-f $document_root/$request_filename) {
+            break;
+        }
+
+        rewrite ^(.*)$ http://rd.image-gmkt.com$1 break;
+    }
+}
+
+
+
+
+
+
+
+
+
+이 설정은 주어진 아파치 설정을 Nginx 설정으로 변환한 것입니다. 그러나 주의해야 할 중요한 점은 Nginx에서 Rewrite 모듈을 사용할 때는 아파치와는 약간 다른 구문을 사용해야 한다는 것입니다. 따라서 동작을 테스트하고 필요에 따라 조정해야 할 수 있습니다.
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+주어진 아파치 설정을 Nginx 설정으로 변환하는 것은 다음과 같이 수행할 수 있습니다:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+server {
+    listen 80;
+    server_name a.dbwlsxptmxm.com;
+    root /var/www/html_1;
+
+    location / {
+        if ($request_uri !~ ^/redirected) {
+            rewrite ^(.*)$ http://b.dbwlsxptmxm.com$request_uri permanent;
+        }
+    }
+}
+
+server {
+    listen 80;
+    server_name c.dbwlsxptmxm.com;
+    root /var/www/html_1;
+
+    location / {
+        if ($request_uri !~ ^/redirected) {
+            rewrite ^(.*)$ http://d.dbwlsxptmxm.com$request_uri permanent;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+위의 Nginx 설정은 주어진 아파치 설정을 Nginx로 변환한 것입니다. 주요 포인트는 다음과 같습니다:
+
+server 블록을 사용하여 가상 호스트를 설정합니다.
+listen 지시문을 사용하여 포트 80에서 리스닝합니다.
+server_name 지시문을 사용하여 도메인 이름을 설정합니다.
+root 지시문을 사용하여 DocumentRoot 디렉토리를 설정합니다.
+location 블록을 사용하여 요청 경로를 처리합니다.
+요청 경로가 /redirected로 시작하지 않는 경우, rewrite 지시문을 사용하여 지정된 도메인으로 리디렉션합니다.
+이 설정을 사용하면 주어진 가상 호스트 설정과 동일한 동작을 Nginx에서 구현할 수 있습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+
+# nginx variable $request_uri
+# full original request URI (with arguments)
+# http://nginx.org/en/docs/http/ngx_http_core_module.html#var_request_uri
+
+if ( $request_uri ~* "(.*)redirectKeyword(.*)" ) {
+	return 301 $1uri.change.result$2;
+}
+
+    if ( $request_uri ~* "(.*)host(.*)" ) {
+        return 301 $1testserver$2;
+    }
+
+# path에서 replace 처리 
+http://karint.com/go/redirectKeyword/bbb/auq?lang=en&url=qqqq&ddd=aaaaaa
+$1: http://karint.com/go/
+$2: /bbb/auq?lang=en&url=qqqq&ddd=aaaaaa
+==>  http://karint.com/go/uri.change.result/bbb/auq?lang=en&url=qqqq&ddd=aaaaaa
+
+# parameter에서 replace 처리 
+http://karint.com/go/bbb/auq?lang=en&url=redirectKeyword&ddd=aaaaaa
+$1: http://karint.com/go/bbb/auq?lang=en&url=
+$2: &ddd=aaaaaa
+
+=> http://karint.com/go/bbb/auq?lang=en&url=uri.change.result&ddd=aaaaaa
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    if ($request_uri ~* "(.*)host(.*)") {
+        rewrite ^ $scheme://d.testserver.com$request_uri permanent;
+    }
+}
+
+server {
+    listen 80;
+    server_name b.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_b;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name c.host.com;
+
+    location / {
+        root   /usr/share/nginx/html_c;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    server_name d.testserver.com;
+
+    location / {
+        root   /usr/share/nginx/html_d;
+        index  index.html index.htm;
+    }
+}
+
+
+
+
+-------------------------------
+    location / {
+           if ( $request_uri ~* "(.*)host(.*)" ) {
+           return 301 $1testserver$2;
+        }
+    }
+
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    #uri(path + parameter) rewrite
+    if ( $request_uri ~* "(.*)redirectKeyword(.*)" ) {
+        return 301 $1uri.change.result$2;
+    }
+	
+    #parameter에서 rewrite
+    if ( $args ~* "(.*)redirectKeyword(.*)" ) {
+        return 301 $uri?$1arg.change.result$2;
+    }
+	
+    location / {
+        root C:/work/source/hulint;
+    }
+	
+}
+
+
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    if ( $request_uri ~* "(.*)host(.*)" ) {
+        return 301 $1testserver$2;
+    }
+ }
+
+
+
+@@@@@@@@@22
+
+
+server {
+    listen 80;
+    server_name a.host.com;  
+    root /usr/share/nginx/html_a;
+
+    location / {
+        if ($http_host ~* "^a.host.com") {    
+            rewrite ^ http://a.testserver.com$request_uri permanent; 
+        }
+    }
+}
+
+이렇게 하면 a.host.com으로 접속시 a.testserver.com 으로 rewrite 정상접속 되는걸 확인했는데
+변경하고 싶은 부분이 a.host.com이 아닌 특정 문자 예를들어 요청하는 url에 host가 포함되면 a.testserver.com 으로 rewrite하게 작성
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+    root /var/www/html_1;
+
+    location / {
+        if ($request_uri ~* "host") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+        }
+    }
+}
+
+
+
+--
+server {
+    listen 80;
+    server_name a.host.com;
+    root /usr/share/nginx/html_a;
+
+    location / {
+        if ($request_uri ~* "become") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+        }
+    }
+
+}
+이렇게 하면 a.testserver.com 으로 rewrite하는 조건이 되는 요청 문자열이 become이 되고 a.host.com으로 접속하면 rewrite가 되지 말아야 하는데 
+a.host.com으로 접속하면 a.testserver.com으로 이동됩니다. 수정해야 할것 같아요.
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+    root /usr/share/nginx/html_a;
+
+    location / {
+        if ($request_uri ~* "become") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+        }
+
+        # "become"을 포함하지 않는 요청은 그대로 처리
+    }
+}
+그래도 여전히 a.host.com으로 접속하면 a.testserver.com으로 들어가집니다.
+
+server {
+    listen 80;
+    server_name a.host.com;
+    root /usr/share/nginx/html_a;
+
+    location / {
+        if ($request_uri ~* "become") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+        }
+        
+        # 다른 조건에 따른 처리를 추가할 수 있음
+
+        # "become"을 포함하지 않는 요청은 그대로 처리
+    }
+}
+
+-----
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+            if ($request_uri ~* "host") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+            root /usr/share/nginx/html_a;
+    }
+
+        # 다른 조건에 따른 처리를 추가할 수 있음
+  #qwertyuiop asdfghjkl zxcvbnm
+# 
+        # "become"을 포함하지 않는 요청은 그대로 처리
+    }
+}
+
+
+
+@@@@@@@@@@@@@@@@@2
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        root /var/www/html_1;
+        if ($request_uri ~* "dbwls") {
+            rewrite ^ http://a.testserver.com$request_uri permanent;
+        }
+    }
+}
+이렇게 하면 a.host.com.dbwls으로 접속했을때 a.testserver.com/dbwls으로 가게 되는데 
+a.host.com.dbwls 했을때 a.testserver.com/dbwls 가 아닌 a.testserver.com으로 보내는 설정이 필요합니다
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($host ~* ^(.*?)\.dbwls$) {
+            set $new_host $1.a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+    }
+}
+
+
+
+@@@@@@@@@2
+
+#as is
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* "dbwls","asd","qwe","zxc") {
+            set $new_host $1a.testserver.com;
+            rewrite ^ http://$new_host permanent;
+        }
+    }
+}
+
+
+문자열을 여러개 넣고싶으면 이렇게 하는것이 맞나요?
+
+#to be
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* "dbwls" ) {
+            set $new_host a.testserver.com;
+        }
+        if ($request_uri ~* "asd" ) {
+            set $new_host b.testserver.com;
+        }
+        if ($request_uri ~* "qwe" ) {
+            set $new_host c.testserver.com;
+        }
+        if ($request_uri ~* "zxc" ) {
+            set $new_host d.testserver.com;
+        }
+        rewrite ^ http://$new_host permanent;
+    }
+}
+
+
+----
+
+테스트중 
+server {
+    listen 80;
+    server_name a.host.com;
+
+    location / {
+        if ($request_uri ~* (dbwls|asd|qwe|zxc)) {
+            set $new_host $1.testserver.com;
+            return 301 http://$new_host;
+        }
+    }
+}
+
+
+server {
+    listen 80;
+    server_name a.host.com;
+    location / {
+        root /usr/share/nginx/html_a;
+        index index.html;
+        if ($request_uri ~* ^/(imageproxy|bar|Mobile/Intro|htmlproxy|itemmail|Update|thumbnail)) {
+            set $new_host a.testserver.com;
+            return 301 http://$new_host;
+        }
+    }
+}
+
+---
+
+테스트중
+        if ($request_uri ~* (.*)(v_)([0-9]+)(\.)(.*)) {
+            set $args $3;
+            rewrite ^ /$4?$args last;
+        }
+
+        if ($request_uri ~* ^/([0-9]+)/?(.*)) {
+            set $args $1;
+            rewrite ^ /$2?$args last;
+        }
+
+        if ($request_uri ~* \.(jpg|jpeg|png|gif|webp|jpg.webp|jpeg.webp)) {
+            set $is_image "YES";
+        }
+
+        if ($is_image != "YES") {
+            return 403;
+        }
+
+        if ($is_image = "YES") {
+            rewrite ^(.+)(\.s_)([0-9a-zA-Z-_]+)(_s)(\..+)$ /thumbnail/$3$1$5 last;
+        }
+
+        if (-f $document_root/$request_filename) {
+            break;
+        }
+
+        proxy_pass http://a.testserver.com;

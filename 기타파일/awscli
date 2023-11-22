@@ -1,0 +1,8 @@
+$ aws configure
+AWS Access Key ID [None] : [doop]
+AWS Secret Access Key [None] : [TiRIkMj+K2CeDhl3bXRoUbhuUwGAPhonVVZYALBZ]
+Default region name [None] : ap-northeast-2[서울 리전]
+Default output format [None] : text / json / table
+
+
+aws cli를 이용하여 아파치 웹서버가 돌아가는 프리티어 ec2를 생성하는 방법
